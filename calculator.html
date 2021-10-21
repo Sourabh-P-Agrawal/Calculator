@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULATOR</title>
+
+    <style>
+        body {
+            margin: 0%;
+            padding: 0%;
+            line-height: 0.5;
+            background: linear-gradient(to left, #7808f0, #06bdf5);
+            font-family: sans-serif;
+        }
+
+        h2 {
+            display: block;
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+            border: 2px solid white;
+            border-radius: 20px;
+            box-shadow: 0px 0px 10px #b8bdcf;
+        }
+
+        .calci {
+            position: absolute;
+            text-align: center;
+            width: 100%;
+            height: auto;
+            top: 20%;
+        }
+
+        #equal {
+            width: 116px;
+            height: 55px;
+            font-size: 20px;
+            font-weight: 300px;
+        }
+
+        #result {
+            border: none;
+            background: white;
+            border-radius: 30px;
+            width: 250px;
+            font-size: 20px;
+            font-weight: 300px;
+            font-family: sans-serif;
+            height: 60px;
+            margin: auto;
+            border: 2px solid white(5, 218, 255, 0.726);
+            color: black;
+        }
+
+        .button {
+            width: 55px;
+            height: 55px;
+            padding-top: -1px;
+            font-size: 20px;
+            border: none;
+            background: white;
+            font-family: sans-serif;
+            font-weight: 300px;
+            border: 0;
+            border-radius: 30px;
+            margin: 1.5px;
+            transition: 0.25px;
+        }
+
+        .operator {
+            width: 55px;
+            height: 55px;
+            padding-top: -1px;
+            font-size: 20px;
+            text-align: center;
+            color: black;
+            border: none;
+            background: white;
+            font-family: sans-serif;
+            font-weight: 500px;
+            border: 0;
+            border-radius: 30px;
+            margin: 1.5px;
+            transition: 0.25px;
+            cursor: pointer;
+        }
+
+        .operator:hover,.button:hover {
+            background: #00d9ff;
+        }
+
+
+    </style>
+
+
+</head>
+
+<body>
+
+    <h2>SIMPLE CALCULATOR</h2>
+
+</body>
+
+
+<form action="calculator.html" class="calci">
+
+    <input type="text" id="result">
+    <br><br>
+
+    <input type="button" class="button" value="C" onclick="clr()">
+
+    <input type="button" class="button" value="<" onclick="result.value=result.value.substring(0,result.value.length*1-1)">
+
+    <input type="button" class="button" value="00" onclick="dispaly('00')">
+
+    <input type="button" class="operator" value="/" onclick="dispaly('/')">
+
+    <br><br>
+
+    <input type="button" class="button" value="9" onclick="dispaly('9')">
+
+    <input type="button" class="button" value="8" onclick="dispaly('8')">
+
+    <input type="button" class="button" value="7" onclick="dispaly('7')">
+
+    <input type="button" class="operator" value="*" onclick="dispaly('*')">
+
+    <br><br>
+
+    <input type="button" class="button" value="6" onclick="dispaly('6')">
+
+    <input type="button" class="button" value="5" onclick="dispaly('5')">
+
+    <input type="button" class="button" value="4" onclick="dispaly('4')">
+
+    <input type="button" class="operator" value="+" onclick="dispaly('+')">
+
+    <br><br>
+
+    <input type="button" class="button" value="3" onclick="dispaly('3')">
+
+    <input type="button" class="button" value="2" onclick="dispaly('2')">
+
+    <input type="button" class="button" value="1" onclick="dispaly('1')">
+
+    <input type="button" class="operator" value="-" onclick="dispaly('-')">
+
+    <br><br>
+
+    <input type="button" class="button" value="0" onclick="dispaly('0')">
+
+    <input type="button" class="button" value="." onclick="dispaly('.')">
+
+    <input type="button" class="operator" id="equal" value="=" onclick="solve()">
+
+
+</form>
+
+<script>
+    function dispaly(val) {
+        document.getElementById("result").value += val
+    }
+
+    function solve() {
+        let x = document.getElementById("result").value
+        let y = eval(x)
+        document.getElementById("result").value = y
+    }
+
+    //function that clear the display
+    function clr() {
+        document.getElementById("result").value = ""
+    }
+</script>
+
+</html>
